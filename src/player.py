@@ -5,7 +5,7 @@ class Player(pygame.sprite.Sprite):
     
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load(r'pygame/lunar.png').convert()
+        #self.image = pygame.image.load(r'pygame/lunar.png').convert()
         self.rect = pygame.Rect(10,10,30,30)
         self.LEFT_KEY, self.RIGHT_KEY, self.FACING_LEFT = False, False, False
         self.isJumping, self.onGround = False, False

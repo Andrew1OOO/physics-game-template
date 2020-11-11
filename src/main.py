@@ -9,9 +9,10 @@ window = pygame.display.set_mode((D_Width,D_Length))
 running = True
 clock = pygame.time.Clock()
 fps = 60
+
+positions_ground = [(200, 600), (600, 600)]
 player = Player()
 ground = Map()
-
 while running:
     dt = clock.tick(60) * .001 * fps
     for event in pygame.event.get():
@@ -38,14 +39,18 @@ while running:
         
         if pygame.mouse.get_pressed()[0]:
             ground.add_ground(canvas, pygame.mouse.get_pos())
+    
+    ground.check_landed(player.rect, ground.rect, D_Length)
     player.update(dt, D_Length)  
     
         
     canvas.fill((0, 255, 255))
     window.blit(canvas, (0,0))
-    try:
+    '''try:
         ground.draw(window)
     except:
         pass
+    '''
+    ground.draw(window, positions_ground)
     player.draw(window)    
     pygame.display.update()
