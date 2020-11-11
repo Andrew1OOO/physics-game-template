@@ -40,7 +40,7 @@ class Player(pygame.sprite.Sprite):
         if self.velocity.y > 7: 
             self.velocity.y = 7
         self.position.y += self.velocity.y * dt + (self.acceleration.y * .5) * (dt * dt)
-        if self.position.y > displayLength:
+        if self.position.y > displayLength + 10:
             self.on_ground = True
             self.velocity.y = 0
             self.position.y = -10
@@ -56,3 +56,4 @@ class Player(pygame.sprite.Sprite):
             self.is_jumping = True
             self.velocity.y -= 8
             self.on_ground = False
+
